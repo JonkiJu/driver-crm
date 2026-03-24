@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: #f1f5f9;
+  font-family: "DM Sans", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+input,
+textarea,
+select,
+button {
+  font-family: "DM Sans", sans-serif;
+}
+
+.card-hover:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1) !important;
+  transform: translateY(-2px);
+}
+
+.nav-item:hover {
+  background: #f1f5f9 !important;
+  color: #1e293b !important;
+}
+
+.btn-p:hover {
+  background: #1d4ed8 !important;
+}
+
+.btn-g:hover {
+  background: #f1f5f9 !important;
+}
+
+.row-hover:hover {
+  background: #f8fafc !important;
+}
+
+.tab-btn {
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s;
+}
+
+.tab-btn:hover {
+  color: #1e293b !important;
+}
+
+.tab-btn.on {
+  border-bottom-color: #2563eb;
+  color: #2563eb !important;
+  font-weight: 600;
+}
+
+.file-zone:hover {
+  border-color: #2563eb !important;
+  background: #eff6ff !important;
+}
+
+@keyframes sIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.s-in {
+  animation: sIn 0.2s ease forwards;
+}
+
+.f-up {
+  animation: fUp 0.18s ease forwards;
+}
