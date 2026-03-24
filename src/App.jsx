@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { STAGES } from "./constants/data";
 import { minutesUntil, nextActionTs, todayStr } from "./utils/date";
 import { useDriversStore } from "./store/useDriversStore";
@@ -128,6 +128,18 @@ export default function App() {
     }
 
     setStageModal(null);
+  }
+
+  async function handleLogout() {
+    if (!auth) return;
+    try {
+      await signOut(auth);
+      setSelectedId(null);
+      setShowAdd(false);
+      setStageModal(null);
+    } catch {
+      // No-op: auth listener remains source of truth for UI state.
+    }
   }
 
   const selected = selectedId ? drivers.find((driver) => driver.id === selectedId) : null;
@@ -397,6 +409,26 @@ export default function App() {
           >
             Add Driver
           </button>
+
+          {isFirebaseConfigured && auth && (
+            <button
+              onClick={handleLogout}
+              className="btn-g"
+              style={{
+                background: "#f8fafc",
+                border: "1px solid #e2e8f0",
+                color: "#475569",
+                padding: "8px 12px",
+                borderRadius: 8,
+                fontSize: 12,
+                fontWeight: 600,
+                cursor: "pointer",
+                flexShrink: 0,
+              }}
+            >
+              Logout
+            </button>
+          )}
         </header>
 
         {isLoading && (

@@ -16,6 +16,10 @@ pnpm-debug.log*
 .env.*
 !.env.example
 
+# Firebase admin keys
+serviceAccountKey.json
+*.service-account.json
+
 # Editor/IDE
 .vscode/*
 !.vscode/extensions.json
